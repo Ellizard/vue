@@ -27,49 +27,63 @@
         <input type="text" v-model="user.lastname">
         <br>
     <h3> {{fullName}} </h3>
+    <h2> {{ msg }} </h2>
   </div>
 </template>
 
 
 
 <script>
-  export default {
-    name: 'test',
-    data() {
-      return {
-        title: 'test hello',
-        user: {
-          name: 'John',
-          lastname: 'Doe',
+    export default {
+        name: 'test',
+        props: {
+            msg: {
+                type: String,
+                default: 'Foobar'
+            }
         },
-        showName: true,
-        items: [
-          {title: 'Item 1'},
-          {title: 'Item 2'},
-          {title: 'Item 3'},
-          {title: 'Item 4'}
-        ]
-      }
+        data() {
+            return {
+                title: 'test hello',
+                user: {
+                    name: 'John',
+                    lastname: 'Doe',
+                },
+                showName: true,
+                items: [{
+                        title: 'Item 1'
+                    },
+                    {
+                        title: 'Item 2'
+                    },
+                    {
+                        title: 'Item 3'
+                    },
+                    {
+                        title: 'Item 4'
+                    }
+                ]
+            }
 
-    },
-    methods: {
-      greet: function(){
-        alert('Hello');
-      },
-      pressKey: function(e){
-        console.log(e.target.value);
-      },
-      enterHit: function(){
-        console.log('Enter');
-      }
-    },
-    computed: {
-      fullName: function(){
-        return this.user.name+ ' '+ this.user.пше lastname
-      }
+        },
+        methods: {
+            greet: function() {
+                alert('Hello');
+            },
+            pressKey: function(e) {
+                console.log(e.target.value);
+            },
+            enterHit: function() {
+                console.log('Enter');
+            }
+        },
+        computed: {
+            fullName: function() {
+                return this.user.name + ' ' + this.user.lastname
+            }
+        }
+
     }
-
-  }
 </script>
 
 
